@@ -1,13 +1,13 @@
 # =========================
 # Stage 1: Build the JAR
 # =========================
-FROM maven:4.0.0-eclipse-temurin-17 AS build
+FROM maven:3.9.3-eclipse-temurin-17 AS build
 
 # Set working directory inside the build container
 WORKDIR /build
 
 # Copy Maven POM file and source code
-COPY pom.xml .
+COPY pom.xml . 
 COPY src ./src
 
 # Package the Spring Boot app, skip tests for faster build
@@ -16,7 +16,7 @@ RUN mvn clean package -DskipTests
 # =========================
 # Stage 2: Run the app
 # =========================
-FROM eclipse-temurin:21-jdk-alpine
+FROM eclipse-temurin:17-jdk-alpine
 
 # Set working directory inside the runtime container
 WORKDIR /app
