@@ -1,7 +1,7 @@
 # =========================
 # Stage 1: Build the JAR
 # =========================
-FROM maven:3.9.3-eclipse-temurin-21 AS build
+FROM maven:4.0.0-eclipse-temurin-21 AS build
 
 # Set working directory inside the build container
 WORKDIR /build
